@@ -1,0 +1,23 @@
+DECLARE LIST : ARRAY [0:3] OF CHAR
+DECLARE INDEX : INTEGER
+
+LIST[0] <- 'h'
+LIST[1] <- 'e'
+LIST[2] <- 'l'
+LIST[3] <- 'l'
+LIST[4] <- 'o'
+LIST[5] <- 'n'
+LIST[6] <- 'i'
+LIST[7] <- 'c'
+LIST[8] <- 'k'
+
+OUTPUT LIST
+
+FOR INDEX <- 0 TO 8
+ IF MOD(INDEX, 2) = 1
+  THEN
+   LIST[INDEX] <- UCASE(LIST[INDEX])
+ ENDIF 
+NEXT INDEX
+
+OUTPUT LIST

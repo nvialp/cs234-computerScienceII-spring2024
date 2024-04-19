@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Nicholas Vialpando"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-02-01 06:29:59 PM"/>
+        <attribute name="created" value="TmljaG9sYXMgVmlhbHBhbmRvO0RGLU5JQ0tWOzIwMjQtMDItMDE7MDU6NTI6MTkgUE07MzYxNA=="/>
+        <attribute name="edited" value="TmljaG9sYXMgVmlhbHBhbmRvO0RGLU5JQ0tWOzIwMjQtMDItMDE7MDY6Mjk6NTkgUE07MTszNzMx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="NUMLIST" type="String" array="True" size="100"/>
+            <declare name="INDEX" type="Integer" array="False" size=""/>
+            <declare name="TS" type="Integer" array="False" size=""/>
+            <declare name="FS" type="Integer" array="False" size=""/>
+            <declare name="TFS" type="Integer" array="False" size=""/>
+            <assign variable="TS" expression="0"/>
+            <assign variable="FS" expression="0"/>
+            <assign variable="TFS" expression="0"/>
+            <for variable="INDEX" start="0" end="99" direction="inc" step="1">
+                <assign variable="NUMLIST[INDEX]" expression="ToString(INDEX + 1)"/>
+                <if expression="INDEX &gt; 0">
+                    <then>
+                        <if expression="INDEX % 3 = 0">
+                            <then>
+                                <assign variable="NUMLIST[INDEX]" expression="&quot;T&quot;"/>
+                                <assign variable="TS" expression="TS + 1"/>
+                            </then>
+                            <else/>
+                        </if>
+                        <if expression="INDEX % 5 = 0">
+                            <then>
+                                <assign variable="NUMLIST[INDEX]" expression="&quot;F&quot;"/>
+                                <assign variable="FS" expression="FS + 1"/>
+                            </then>
+                            <else/>
+                        </if>
+                        <if expression="INDEX % 3 = 0 AND INDEX % 5 = 0">
+                            <then>
+                                <assign variable="NUMLIST[INDEX]" expression="&quot;TF&quot;"/>
+                                <assign variable="TFS" expression="TFS + 1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+                <output expression="NUMLIST[INDEX]" newline="True"/>
+            </for>
+            <output expression="&quot;TOTAL TS: &quot;" newline="True"/>
+            <output expression="TS" newline="True"/>
+            <output expression="&quot;TOTAL FS: &quot;" newline="True"/>
+            <output expression="FS" newline="True"/>
+            <output expression="&quot;TOTAL TFS&quot;" newline="True"/>
+            <output expression="TFS" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
