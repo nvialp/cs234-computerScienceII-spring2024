@@ -1,0 +1,27 @@
+
+package cs234_project;
+
+/**
+ *
+ * @author Nicholas Vialpando
+ */
+
+public class Trainers {
+     // Private instance variable
+    private String name;
+
+    // Constructor
+    public Trainers(String name) {
+        this.name = name;
+    }
+
+    // Getter method
+    public String getName() {
+        return name;
+    }
+
+    // Setter method
+    public void setName(String name) {
+        this.name = name;
+    }
+}
