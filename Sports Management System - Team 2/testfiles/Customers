@@ -1,0 +1,47 @@
+public class Customers {
+    private String name;
+    private String phone;
+    private Classes exercise;// variable that is a Classes method
+    
+    public Customers(){
+    this.name = "John Doe";
+    this.phone = "505-867-5309";
+    }// end of Customers constructor
+    
+    public Customers(String name, String phone){
+        this.name = name;
+        this.phone = phone;
+        
+    }// end of second constructor
+    
+    public String getName(){
+        return name;
+    }// end of getName
+    
+    public String getPhone(){
+        return phone;
+    }// end of getPhone
+    
+    public void setName(String name){
+        this.name = name;
+    }// end of setName
+    
+    public void setPhone(String phone){
+        this.phone = phone;
+        
+    }// end of setPhone
+    
+    public Classes getExercise(){
+        
+        return exercise;
+    }// end of getExercise
+    
+    /**
+     * 
+     * The point of this is to assign a class form the classes method 
+     */
+    public void setExercise(Classes exercise){
+        this.exercise = exercise;
+    }// end of setExerise
+    
+}

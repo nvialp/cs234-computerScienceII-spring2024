@@ -1,0 +1,36 @@
+
+/**
+ *
+ * @author Rhett
+ */
+public class PersonalTrainer extends Trainers{
+
+    private int cost;
+    private String speciality;
+    
+    public PersonalTrainer(String name){
+        super(name);
+        this.cost = 30;
+        this.speciality = "Olympic Lifting";
+    }// end of constructor
+    
+    
+    public int getCost(){
+        return cost;
+    }// end of getCost
+ 
+    public void setCost(int cost){
+        this.cost = cost;
+    }// end of setCost
+    
+    public String getSpeciality(){
+        return speciality;
+    }// end of getSpeciality 
+    
+    public void setSpeciality(String speciality){
+        this.speciality = speciality;
+    }// end of setSpeciality
+    
+    
+}
+    

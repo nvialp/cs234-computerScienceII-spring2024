@@ -1,0 +1,68 @@
+
+package groupproject;
+
+//imports java utilities
+import java.util.ArrayList;
+public class Classes {
+    //creates private instance variables
+    private String name;
+    private int cost;
+    private Trainers trainer;
+    private ArrayList<Customers> participants;
+    
+    //constructor
+    public Classes(String name, int cost){
+        this.name = name;
+        this.cost = cost;
+        this.participants = new ArrayList<>();
+        
+    }// end of constructor
+    
+    //sets trainer for the class
+    public void setTrainer(Trainers newTrainer){
+        trainer = newTrainer;
+    }
+    
+    //returns the trainer for the class
+    public Trainers getTrainer(){
+        return trainer;
+    }
+    
+    
+    /*public void setCustomer(Customers newCustomer){ //don't know if we need this one if we already gave an add customer?
+        participants.add(newCustomer);
+    }// end of setCustomer
+    */ 
+    
+    //adds customer to class 
+    public void addCustomers(Customers customer){
+        participants.add(customer);
+    }    
+    
+    //returns class cost
+    public int getCost(){
+        return cost;
+    }// end of getCost
+    
+    //sets class cost
+    public void setCost(int cost){
+        this.cost = cost;
+    }// end of setCost
+    
+    //gets class name
+    public String getName(){
+        return name;
+    }// end of getName
+    
+    //sets class name
+    public void setName(String name){
+        this.name = name;
+    }// end of setName
+    
+    //prints classes info
+    public String toString(){
+        String output = "The " + this.name + " class costs $" + this.cost + 
+                " and has the following instructor: " + trainer;
+        return output;
+    }
+}

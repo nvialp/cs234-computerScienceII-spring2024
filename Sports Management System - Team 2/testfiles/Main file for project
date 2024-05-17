@@ -1,0 +1,203 @@
+
+import java.util.Scanner;
+//import java.util.Random;
+//import java.util.Iterator;
+//import java.util.ArrayList;
+public class GroupProject {
+
+    /**
+     * @param args the command line arguments
+     */
+
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        
+        Gym GunsNPoses = new Gym ("Guns N' Poses", "123 W Street");
+        
+        
+        Customers first = new Customers("John doe", "505-555-5555");
+        Customers second = new Customers("Jane doe", "575-555-5555");
+        Customers third = new Customers("Phillip Nice", "565-555-5555");
+        Customers customer1 = new Customers("Seymour Butz", "346-598-5569");
+        Customers customer2 = new Customers("Lenny Landry", "386-698-4455");
+
+        
+        GunsNPoses.addMember(first);
+        GunsNPoses.addMember(second);
+        GunsNPoses.addMember(third);
+        GunsNPoses.addMember(customer1);
+        GunsNPoses.addMember(customer2);
+        
+       Classes class1 = new Classes ("yoga" ,45);
+       Classes class2 = new Classes ("HIIT", 55);
+       Classes class3 = new Classes("cycling", 50);
+       
+       
+        GunsNPoses.addClass(class1);
+        GunsNPoses.addClass(class2);
+        GunsNPoses.addClass(class3);
+        
+        Trainers trainer1 = new Trainers ("Rocky");
+        Trainers trainer2 = new Trainers ("Not Rocky");
+        Trainers trainer = new Trainers("billy bob");
+        
+        class1.addTrainer(trainer1);
+        class2.addTrainer(trainer2);
+        class3.addTrainer(trainer);
+        
+        trainer.setName("William Bob");
+
+        
+        PersonalTrainer ptrainer = new PersonalTrainer("Jillian McGee");
+        ptrainer.setCost(45);
+        ptrainer.setSpeciality("Hot Yoga"); 
+        
+        class2.addTrainer(ptrainer);
+
+        
+        do{//i think we can delete this outer menu and just make the View Employees as an option 9 tbh 
+            System.out.println("Database system\n"
+                + "1. Open gym: \n"
+                + "2. View Employees: \n"// we don't have anywhere to view and delete trainer info so I stuck it here
+                + "3. Exit Gym");
+            
+            choice = scanner.nextInt();
+            switch(choice) {
+                case 1:
+                    System.out.println(GunsNPoses.getName() + " Main Menu");
+                    do{
+                        System.out.println("Database system\n"
+                        + "1. Add New Customer: \n"
+                        + "2. Delete Customer: \n"
+                        + "3. Update Customer Information: \n"
+                        + "4. Add Class \n"
+                        + "5. View Classes: \n"
+                        + "6. Delete Class: \n"  
+                        + "7. View Gym Members: \n"        
+                        + "8. Exit the Program \n");
+                        
+                    choice = scanner.nextInt();
+                    switch(choice){
+                        case 1:
+                            System.out.println("Add new Customer");
+
+             
+                            Scanner sc1 = new Scanner(System.in);
+                            System.out.println("Please enter name "); 
+                            String name = sc1.nextLine();
+                            Customers newCustomer = new Customers();
+                            newCustomer.setName(name);
+
+                            Scanner sc2 = new Scanner (System.in);
+                            System.out.println("Please enter phone number");
+                            String phone = sc2.nextLine();
+                            newCustomer.setPhone(phone);
+                            GunsNPoses.addMember(newCustomer);
+
+                            break;
+                        case 2:
+                            System.out.println("Delete Customer");
+                            Scanner sc3 = new Scanner (System.in);
+                            System.out.println("Enter Customer to be Removed");
+                            GunsNPoses.getMembers();
+                            String removeCustomer = sc3.nextLine();
+                            GunsNPoses.deleteMember(removeCustomer);
+
+                            break;
+                        case 3:
+                            System.out.println("Update Customer Information");
+                            System.out.print("Enter Customer to Update:");
+                            GunsNPoses.getMembers();
+                            Scanner sc11 = new Scanner(System.in);
+                            String fixed = sc11.nextLine();
+                            GunsNPoses.updateMember(fixed);
+                            break;
+                        case 4:
+                            System.out.println("Add Class");
+                            
+                            System.out.print("Please enter class name: "); //adds name as well as adds class to gym arraylist
+                            Scanner sc7 = new Scanner (System.in);
+                            String newName = sc7.nextLine();
+
+                            System.out.print("Please enter class cost: "); //adds cost
+                            Scanner sc8 = new Scanner (System.in);
+                            int cost = sc8.nextInt();
+                            
+                            Classes newClass = new Classes(newName, cost);
+                            GunsNPoses.addClass(newClass);
+
+ 
+                            break;
+                            
+                        case 5:
+                            System.out.println("View Classes");
+                            GunsNPoses.getClasses();
+                            break;
+                        
+                        case 6:
+                            System.out.println("Delete Class");
+                            GunsNPoses.getClasses();
+                            System.out.print("Please enter name of class to delete: ");
+                            Scanner sc9 = new Scanner (System.in);
+                            String className= sc9.nextLine();
+                            GunsNPoses.removeClass(className);
+                           
+                            break;
+                            
+                        case 7:
+                            GunsNPoses.getMembers();
+                            break;    
+                            
+                        case 8:
+                            System.out.println("Exiting Gym, Goodbye! \n");
+                            break;
+                            
+                        default:
+                            System.out.println("Invalid choice, please try again");
+                        }
+                    }// end of gym main menu
+                    while(choice != 8);
+                    
+                    break;
+                    
+                case 2:
+                                        do {
+                                            System.out.println("Trainer information\n"
+                                                    + "1. View Trainers: \n"
+                                                    + "2. Add Trainers: \n"
+                                                    + "3. Delete Trainer: \n"  // we don't have anywhere to view and delete trainer info so I stuck it here
+                                                    + "4. Go back \n");
+
+                                            choice = scanner.nextInt();
+                                            switch (choice) {
+                                                case 1:
+                                                    GunsNPoses.printTrainers();
+                                                    //System.out.println(class1.getTrainer().getName());
+                                                    break;
+                                                case 2:// add trainer
+                                                    break;
+                                                case 3:// delete trainer
+                                                    break;
+                                                case 4:// going back
+                                                    break;
+                                                default:
+                                                    System.out.println("Try a valid option");
+                                            } // end of switch
+                                        } while (choice != 4);
+                                        break;
+
+                    
+                case 3:
+                    System.out.println("Exiting Management System, Goodbye!");
+                    break;
+                    
+                default:
+                    System.out.println("Invalid choice, please try again");
+            }  
+        }//end of database menu
+        while(choice != 3);
+    }
+}
