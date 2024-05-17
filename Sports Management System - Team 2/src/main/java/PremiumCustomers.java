@@ -1,0 +1,28 @@
+
+
+/**
+ *
+ * @author rhett
+ */
+public class PremiumCustomers extends Customers{
+    
+    // Private instance variable
+    private double discount;
+
+    // Constructor
+    public PremiumCustomers(String name, String phone) {
+        super(name, phone);
+        this.discount = .15;
+    }
+
+    // Setter method for discount
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    // Getter method for discount
+    public double getDiscount() {
+        return discount;
+    }
+
+}
